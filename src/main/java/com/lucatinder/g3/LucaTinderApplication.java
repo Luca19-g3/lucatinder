@@ -8,7 +8,8 @@ public class LucaTinderApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(LucaTinderApplication.class, args);
-		System.out.println("-------------------------------Hola hijosdeputa");
+		System.out.println("-------------------------------Hola hijosdeputa sobretodo a joaquin");
+		
 	}
 
 }
