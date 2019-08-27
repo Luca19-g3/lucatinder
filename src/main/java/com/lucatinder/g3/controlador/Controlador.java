@@ -4,10 +4,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.lucatinder.g3.LucaTinderApplication;
@@ -49,10 +50,25 @@ public class Controlador {
 	public String palIndex(@ModelAttribute("perfil") Perfil p) {
 		return "index";
 	}
-	/*esto es una prueba que despues se cambiara por el loggin*/
+	/**
+	 * Metodo login
+	 * 
+	 * Metodo para entrar a la aplicacion
+	 * 
+	 * @param ModelMap model guarda el perfil que ha logeado
+	 * @param int id Id que introduce el usuario
+	 * @return paginaPerfil.html
+	 * @version 1.0
+	 * @author Jorge
+	 * 
+	 *         27/08/2019
+	 * 
+	 */
 	
 	@PostMapping("/entrar")
-	public String login() {
+	public String login(ModelMap model,@RequestParam("id")int id) {
+		logger.info("****************************Intentando entrar");
+		model.addAttribute("perfil", servicio.getPerfil(id) );
 		return "paginaPerfil";
 	}
 

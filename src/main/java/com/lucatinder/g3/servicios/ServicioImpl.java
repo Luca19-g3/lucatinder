@@ -66,6 +66,7 @@ public class ServicioImpl implements Servicio {
 	 */
 	@Override
 	public Perfil getPerfil(int id) {
+		logger.info("Ejecutando el metodo getPerfil en la clase ServicioImpl");
 		return perfilDao.getPerfil(id);
 	}
 

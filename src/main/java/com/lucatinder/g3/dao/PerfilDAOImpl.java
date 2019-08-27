@@ -66,6 +66,7 @@ public class PerfilDAOImpl implements PerfilDAO {
 
 	@Override
 	public Perfil getPerfil(int id) {
+		logger.info("Ejecutando el metodo getPerfil en la clase ServicioImpl");
 		return entityManager.find(Perfil.class, id);
 	}
 
