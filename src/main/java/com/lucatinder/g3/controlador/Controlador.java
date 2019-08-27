@@ -32,13 +32,26 @@ public class Controlador {
 	private static final Logger logger = LoggerFactory.getLogger(LucaTinderApplication.class);
 	@Autowired
 	private Servicio servicio;
-
-	@RequestMapping("/")
+	/**
+	 * Metodo palIndex
+	 * 
+	 * Metodo para crear un nuevo Perfil
+	 * 
+	 * @param Perfil p Perfil que se va crear
+	 * @return index.html
+	 * @version 1.0
+	 * @author Jorge
+	 * 
+	 *         27/08/2019
+	 * 
+	 */
+	@GetMapping("/")
 	public String palIndex(@ModelAttribute("perfil") Perfil p) {
 		return "index";
 	}
-
-	@RequestMapping("/perfil")
+	/*esto es una prueba que despues se cambiara por el loggin*/
+	
+	@PostMapping("/perfil")
 	public String prueba() {
 		return "index";
 	}
@@ -56,11 +69,11 @@ public class Controlador {
 	 *         27/08/2019
 	 * 
 	 */
-	@RequestMapping("/new")
+	@PostMapping("/new")
 	public ModelAndView newPerfil(@ModelAttribute("perfil") Perfil p) {
 		logger.info("**************************************GUARDANDO Perfil");
 		servicio.newPerfil(p);
-		logger.info("******************************Perfil GUARDADO");
+		logger.info("******************************Perfil GUARDADO" +p.toString());
 		ModelAndView model = new ModelAndView("redirect:/");
 		return model;
 	}
