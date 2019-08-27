@@ -2,9 +2,12 @@ package com.lucatinder.g3.servicios;
 
 import javax.transaction.Transactional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.lucatinder.g3.LucaTinderApplication;
 import com.lucatinder.g3.dao.PerfilDAO;
 import com.lucatinder.g3.modelo.Perfil;
 /**
@@ -21,6 +24,8 @@ import com.lucatinder.g3.modelo.Perfil;
 @Service
 @Transactional
 public class ServicioImpl implements Servicio {
+	private static final Logger logger = LoggerFactory.getLogger(LucaTinderApplication.class);
+	
     @Autowired
 	private PerfilDAO perfilDao;
 	
@@ -40,6 +45,7 @@ public class ServicioImpl implements Servicio {
 
 	@Override
 	public Perfil newPerfil(Perfil p) {
+		logger.info("Ejecutando el metodo newPerfil en la clase ServicioImpl");
 		return perfilDao.newPerfil(p);
 		
 	}
