@@ -1,7 +1,9 @@
 package com.lucatinder.g3.servicios;
 
-import com.lucatinder.g3.modelo.Perfil;
+import org.springframework.stereotype.Service;
 
+import com.lucatinder.g3.modelo.Perfil;
+@Service
 public interface Servicio {
 	/**
 	 * Interface ServicioImpl

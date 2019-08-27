@@ -1,10 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+   <meta charset="UTF-8">
+   <title>LucaTinder</title>
 </head>
-<body>
-Prueba
+<body> <label for="id">Id</label>
+   <form method="post" th:object="${perfil}" th:action="@{/perfil}">
+       <input type= "text" th:field="*{id}"/>
+       <input type="submit" value="Entrar"/>
+   </form>
+
+ <form method="post" th:object="${perfil}"  th:action="@{/new}">
+          <label for="nombre">Email</label>
+       <input type="email" th:field="*{correo}"/>
+       <label for="password">Contraseña</label>
+       <input type="password" th:field="*{password}"/ maxlength="16">
+              <label for="nombre">Nombre</label>
+              <input type="text" th:field="*{nombre}"/>
+                     <label for="nombre">Genero</label>
+       <select th:field="*{genero}">
+           <option th:value="'M'" th:text="Hombre" th:field="*{genero}">Hombre</option>
+           <option th:value="'F'" th:text="Mujer" th:field="*{genero}">Mujer</option>
+       </select>
+		<input type="submit" value="Crear cuenta"/>
+   </form>
 </body>
 </html>

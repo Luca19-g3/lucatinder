@@ -20,17 +20,18 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "perfil") 
+@Table(name = "PERFIL") 
 public class Perfil {
 
 	private int id;
 	private String correo;
-	private String password;
 	private String nombre;
-	private String descripcion;
+	private String password;
 	private char genero;
-	private char preferencias;
+	private String descripcion;
 	private int edad;
+	private char preferencias;
+
 	
 	
 	public Perfil() {
@@ -39,7 +40,7 @@ public class Perfil {
 	
 	@Id
 	@GeneratedValue
-	@Column(name = "id_perfil")
+	@Column(name = "ID_PERFIL")
 	public int getId() {
 		return id;
 	}
@@ -56,14 +57,6 @@ public class Perfil {
 		this.correo = correo;
 	}
 
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
 	public String getNombre() {
 		return nombre;
 	}
@@ -72,12 +65,12 @@ public class Perfil {
 		this.nombre = nombre;
 	}
 
-	public String getDescripcion() {
-		return descripcion;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public char getGenero() {
@@ -88,12 +81,12 @@ public class Perfil {
 		this.genero = genero;
 	}
 
-	public char getPreferencias() {
-		return preferencias;
+	public String getDescripcion() {
+		return descripcion;
 	}
 
-	public void setPreferencias(char preferencias) {
-		this.preferencias = preferencias;
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
 
 	public int getEdad() {
@@ -103,6 +96,15 @@ public class Perfil {
 	public void setEdad(int edad) {
 		this.edad = edad;
 	}
+
+	public char getPreferencias() {
+		return preferencias;
+	}
+
+	public void setPreferencias(char preferencias) {
+		this.preferencias = preferencias;
+	}
+
 
 	public String toString() {
 		return "Perfil:\n\tId: " + id + ",\n\tCorreo: " + correo + ",\n\tPassword: " + password + ",\n\tNombre: " + nombre + ",\n\tEdad: " + edad + ",\n\tGénero: " + genero + ",\n\tPreferencias sexuales: " + preferencias + ",\n\tDescripcion: " + descripcion;
