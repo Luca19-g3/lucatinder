@@ -17,5 +17,6 @@ public interface Servicio {
 	 */
 
 	public Perfil newPerfil(Perfil p);
+	public Perfil getPerfil(int id);
 
 }

@@ -51,9 +51,9 @@ public class Controlador {
 	}
 	/*esto es una prueba que despues se cambiara por el loggin*/
 	
-	@PostMapping("/perfil")
-	public String prueba() {
-		return "index";
+	@PostMapping("/entrar")
+	public String login() {
+		return "paginaPerfil";
 	}
 
 	/**

@@ -50,5 +50,23 @@ public class PerfilDAOImpl implements PerfilDAO {
 		entityManager.merge(p);
 		return p;
 	}
+	/**
+	 * Metodo getPerfil
+	 * 
+	 * Metodo para encontrar un perfil por id
+	 * 
+	 * @param int id Id del perfil que se va a buscar
+	 * @return Perfil p Perfil encontrado
+	 * @version 1.0
+	 * @author Jorge
+	 * 
+	 *         27/08/2019
+	 * 
+	 */
+
+	@Override
+	public Perfil getPerfil(int id) {
+		return entityManager.find(Perfil.class, id);
+	}
 
 }

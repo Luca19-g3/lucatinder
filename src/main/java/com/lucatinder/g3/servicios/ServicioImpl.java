@@ -51,5 +51,22 @@ public class ServicioImpl implements Servicio {
 		return perfilDao.newPerfil(p);
 
 	}
+	/**
+	 * Metodo getPerfil
+	 * 
+	 * Metodo para encontrar un perfil por id
+	 * 
+	 * @param int id Id del perfil que se va a buscar
+	 * @return Perfil p Perfil encontrado
+	 * @version 1.0
+	 * @author Jorge
+	 * 
+	 *         27/08/2019
+	 * 
+	 */
+	@Override
+	public Perfil getPerfil(int id) {
+		return perfilDao.getPerfil(id);
+	}
 
 }

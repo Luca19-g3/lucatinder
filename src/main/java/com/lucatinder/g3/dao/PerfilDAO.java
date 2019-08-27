@@ -14,4 +14,5 @@ import com.lucatinder.g3.modelo.Perfil;
 public interface PerfilDAO {
 
 	public Perfil newPerfil(Perfil p);
+	public Perfil getPerfil(int id);
 }
