@@ -10,7 +10,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
-
 import com.lucatinder.g3.LucaTinderApplication;
 import com.lucatinder.g3.modelo.Perfil;
 
@@ -72,20 +71,24 @@ public class PerfilDAOImpl implements PerfilDAO {
 		logger.info("Ejecutando el metodo getPerfil en la clase ServicioImpl");
 		return entityManager.find(Perfil.class, id);
 	}
+
+
+
+	
 	/**
-    * Método getListaPerfil
-    *
-    * Método para obtener una lista de usuarios con id distinto del id dado y longitud definida
-    *
-    * @param int id Id del perfil a evitar en la lista de usuarios
-    * @param int longitud Longitud de la lista devuelta
-    * @return List<Perfil> Lista con n objetos de tipo Perfil obtenidos
-    * @version 1.0
-    * @author Joaquin
-    *
-    *         28/08/2019
-    *
-    */
+	 * Metodo getListaPerfil
+	 * 
+	 * Metodo para obtener una lista de usuarios con id distinto del id dado y longitud definida
+	 * 
+	 * @param int id Id del perfil a evitar en la lista de usuarios
+	 * @param int longitud Longitud de la lista devuelta
+	 * @return List<Perfil> Lista con n objetos de tipo Perfil obtenidos
+	 * @version 1.0
+	 * @author Joaquin
+	 * 
+	 *         28/08/2019
+	 * 
+	 */
 
    @SuppressWarnings("unchecked")
 @Override
