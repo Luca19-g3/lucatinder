@@ -25,6 +25,7 @@ import org.springframework.stereotype.Component;
 public class ErrorPropio {
 	@Id
 	private String mensaje;
+	private String mensajeCreada;
 	
 	
 	public ErrorPropio() {
@@ -40,11 +41,21 @@ public class ErrorPropio {
 		this.mensaje = mensaje;
 	}
 
+	public String getMensajeCreada() {
+		return mensajeCreada;
+	}
+
+	public void setMensajeCreada(String mensajeCreada) {
+		this.mensajeCreada = mensajeCreada;
+	}
 
 	@Override
 	public String toString() {
-		return "Error [mensaje=" + mensaje + "]";
+		return "ErrorPropio [mensaje=" + mensaje + ", mensajeCreada=" + mensajeCreada + "]";
 	}
+
+
+
 	
 	
 	

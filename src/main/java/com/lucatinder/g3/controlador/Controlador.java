@@ -104,11 +104,12 @@ public class Controlador {
 	 * 
 	 */
 	@PostMapping("/new")
-	public ModelAndView newPerfil(@ModelAttribute("perfil") Perfil p) {
+	public ModelAndView newPerfil(@ModelAttribute("perfil") Perfil p,ErrorPropio e) {
 		logger.info("**************************************GUARDANDO Perfil");
 		servicio.newPerfil(p);
 		logger.info("******************************Perfil GUARDADO" + p.toString());
-		ModelAndView model = new ModelAndView("redirect:/");
+		ModelAndView model = new ModelAndView("index");
+		model.addObject("errorpropio", servicio.setMensajeCrear("Tu cuenta ha sido creada."));
 		return model;
 	}
 }

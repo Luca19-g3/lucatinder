@@ -144,6 +144,12 @@ public class ServicioImpl implements Servicio {
 	    
 	    
 	  }
+
+	@Override
+	public ErrorPropio setMensajeCrear(String msg) {
+		error.setMensajeCreada(msg);
+		return error;
+	}
 		
 	
 

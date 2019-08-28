@@ -23,4 +23,5 @@ public interface Servicio {
 	public Perfil getPerfil(int id);
 	public ErrorPropio setError(String msg);
 	public void crearPerfilFalso(int cantidad);
+	public ErrorPropio setMensajeCrear(String msg);
 }
