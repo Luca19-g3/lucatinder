@@ -1,5 +1,10 @@
 package com.lucatinder.g3;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+
+import java.util.ArrayList;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,22 +19,49 @@ public class LucaTinderApplicationTests {
 
 	@Test
 	public void contextLoads() {
-		probadorFakerUsuairo();
+		probadorFakerPerfil();
+		probadorFakeArrayPerfiles();
 		
 		
 	}
 	
 	/**
-	 * pruevas del javafaker
+	 * pruevas del javafaker crear 1 perfil ramdom
 	 * @author jesus
 	 */
 	
-	 public static void probadorFakerUsuairo() {
+	 public static void probadorFakerPerfil() {
 		 Perfil p = FakePerfiles.perfilRandom();
 			System.out.println("-------------------------------------------------------------------------------");
 			 System.out.println(p);
-			 System.out.println("-------------------------------------------------------------------------------");
-		
+			  assertNotEquals(null, p.getCorreo());
+			  assertNotEquals(null, p.getEdad());
+			  assertNotEquals(null, p.getGenero());
+			  assertNotEquals(null, p.getPassword());
+			  assertNotEquals(null, p.getNombre());
+			  assertNotEquals(null, p.getDescripcion()); 
+			  
 		 }
-
+	 
+		/**
+		 * pruevas del javafaker crear 20 perfiles falsos
+		 * @author jesus
+		 */
+	 
+	 public static void probadorFakeArrayPerfiles() {
+		 
+		ArrayList<Perfil> listPerfil = new ArrayList<Perfil>();
+		
+		 
+		listPerfil = FakePerfiles.perfilesRamdom(20);
+		
+		listPerfil.toString();
+		 assertEquals(20, listPerfil.size());
+		 
+		
+		 
+	 }
+	 
 }
+	 
+	 

@@ -1,7 +1,6 @@
 package com.lucatinder.g3.utilidades;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 import org.slf4j.Logger;
@@ -9,8 +8,6 @@ import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.github.javafaker.Faker;
-import com.github.javafaker.Lorem;
-import com.github.javafaker.Name;
 import com.lucatinder.g3.modelo.Perfil;
 
 
@@ -32,6 +29,10 @@ public class FakePerfiles {
 		logger.info("entrando en perfilRamdom");
 		Perfil p = new Perfil();
 		Faker faker = new Faker(new Locale("ES"));
+		
+		
+		String fullName = faker.name().fullName();
+		String firstName = fullName.substring(fullName.lastIndexOf(' '));
 
 		int ramdomN = faker.number().numberBetween(0, 1);
 		char sex;
@@ -52,14 +53,19 @@ public class FakePerfiles {
 		}
 		
 
-		p.setCorreo(faker.name().firstName() + "@lucatinder.org");
-		p.setDescripcion(faker.lorem().characters(10, 40));
+		p.setCorreo(firstName + "@lucatinder.org");
+		p.setNombre(fullName);
+		p.setDescripcion(faker.yoda().quote());
 		p.setEdad(faker.number().numberBetween(18, 90));
 		p.setGenero(sex);
-		p.setNombre(faker.name().fullName());
 		p.setPassword(faker.lorem().characters(8, 16));
 		p.setPreferencias(prefer);
 		logger.info("saliendo de perfilRamdom");
+		
+		
+
+
+		
 		return p;
 	}
 	
@@ -70,15 +76,15 @@ public class FakePerfiles {
 	 * @author jesus
 	 */
 
-	public static List<Perfil> perfilesRamdom(int cantidad) {
+	public static ArrayList<Perfil> perfilesRamdom(int cantidad) {
 		Logger logger = LoggerFactory.getLogger(FakePerfiles.class);
 		logger.info("entrando en perfilesRamdom");
 		ArrayList<Perfil> listPerfil = new ArrayList<Perfil>();
 		
 		while (cantidad>0) {
-			cantidad++;
+			cantidad--;
 			listPerfil.add(perfilRandom());
-			
+
 		}
 
 		return listPerfil;
