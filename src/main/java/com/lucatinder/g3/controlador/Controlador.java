@@ -71,6 +71,7 @@ public class Controlador {
 		ModelAndView model;
 		if (servicio.getPerfil(id) == null) {
 			model = new ModelAndView("redirect:/");
+			model.addObject("error", "eee");
 		} else {
 			model = new ModelAndView("paginaPerfil");
 			model.addObject("perfil", servicio.getPerfil(id) );
