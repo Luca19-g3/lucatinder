@@ -93,11 +93,12 @@ public class ServicioImpl implements Servicio {
 	 * 
 	 * Crea una lista de perfiles
 	 * 
-	 * @param id del usuario que no se muestra
-	 * @param longitud longitud de la lista
+	 * @param int id del usuario que no se muestra
+	 * @param int longitud longitud de la lista
 	 * @return lista de perfiles
 	 * @version 1.0
 	 * @author Jorge
+	 * @author Jesus
 	 * 
 	 *         28/08/2019
 	 * 
@@ -125,7 +126,7 @@ public class ServicioImpl implements Servicio {
 	   * 
 	   * crea una lissta de diversos perfiles falsos
 	   * 
-	   * @param cantidad Nº de perfiles que crea
+	   * @param int cantidad Nº de perfiles que crea
 	   * @version 1.0
 	   * @author Jesus
 	   * 
@@ -149,6 +150,25 @@ public class ServicioImpl implements Servicio {
 	public ErrorPropio setMensajeCrear(String msg) {
 		error.setMensajeCreada(msg);
 		return error;
+	}
+
+	/**
+	 * Metodo listaContactos
+	 * 
+	 * Metodo para listar los perfiles a los que un perfil a dado a like
+	 * 
+	 * @param int id ,del perfil a consultar
+	 * @return  lista de los contactos
+	 * @version 1.0
+	 * @author Jesus
+	 * 
+	 *         28/08/2019
+	 * 
+	 */
+	@Override
+	public List<Perfil> listaContactos(int id) {
+		
+		return perfilDao.listaContactos(id);
 	}
 		
 	

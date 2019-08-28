@@ -1,5 +1,6 @@
 package com.lucatinder.g3.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -11,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import com.lucatinder.g3.LucaTinderApplication;
+import com.lucatinder.g3.modelo.Contacto;
 import com.lucatinder.g3.modelo.Perfil;
 
 /**
@@ -98,4 +100,32 @@ public class PerfilDAOImpl implements PerfilDAO {
        String hql = "FROM Perfil WHERE id != " + id ;
        return (List<Perfil>) entityManager.createQuery(hql).setMaxResults(longitud).getResultList();
    }
+   
+	/**
+	 * Metodo listContactos
+	 * 
+	 * metodo para pedir la lista de los perfiles likeados
+	 * 
+	 * @param la id del perfil a consultar
+	 * @return List<Perfil> Lista de todos los perfiles a los que has dado like
+	 * @version 1.0
+	 * @author jesus
+	 * 
+	 *         28/08/2019
+	 * 
+	 */
+	@Override
+	public List<Perfil> listaContactos(int id) {
+		logger.info("-------------------------------------------------  Entrando a Dao listContactos");
+		Perfil p = getPerfil(id);
+		List<Perfil> listContacto = new ArrayList<Perfil>();
+		List contactos = p.getContactos1();
+		for (int i = 0; i < contactos.size(); i++) {
+			Contacto c = (Contacto) contactos.get(i);
+			
+			 listContacto.add(c.getPerfil2());
+		}
+		logger.info("------------------"+listContacto.toString());
+		return listContacto;
+	}
 }

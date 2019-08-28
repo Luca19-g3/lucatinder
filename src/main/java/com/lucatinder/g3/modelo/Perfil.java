@@ -51,11 +51,13 @@ import javax.persistence.Table;
 
 		private char preferencias;
 
-		//bi-directional many-to-one association to Contacto
+		//bi-directional many-to-one association to Contacto 
+		//---aqui se guardan los perfiles a los que a dado like---
 		@OneToMany(mappedBy="perfil1")
 		private List<Contacto> contactos1;
 
 		//bi-directional many-to-one association to Contacto
+		//---aqui se guardan los perfiles que han dado a like al Perfil---
 		@OneToMany(mappedBy="perfil2")
 		private List<Contacto> contactos2;
 

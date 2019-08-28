@@ -1,5 +1,7 @@
 package com.lucatinder.g3.controlador;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,6 +53,7 @@ public class Controlador {
 	@GetMapping("/")
 	public ModelAndView palIndex(@ModelAttribute("perfil") Perfil p, ErrorPropio e){
 		ModelAndView model = new ModelAndView("index");
+		
 		e = new ErrorPropio();
 		model.addObject("errorpropio", e);
 		return model;
@@ -75,6 +78,7 @@ public class Controlador {
 	@PostMapping("/entrar")
 	public ModelAndView login(@RequestParam("id") int id, ErrorPropio e, Perfil p) {
 		logger.info("****************************Intentando entrar");
+	
 		ModelAndView model;
 		if (servicio.getPerfil(id) == null) {
 			model = new ModelAndView("index");
@@ -115,6 +119,32 @@ public class Controlador {
 		e.setMensaje(" ");
 		e.setMensajeCreada("Tu cuenta ha sido creada.");
 		model.addObject("errorpropio", e);
+		
+		return model;
+	}
+	
+	/**
+	 * Metodo newPerfil
+	 * 
+	 * Metodo para crear un nuevo Perfil
+	 * 
+	 * @param Perfil p Perfil que se va crear
+	 * @return model
+	 * @version 1.0
+	 * @author Jesus
+	 * 
+	 *         28/08/2019
+	 * 
+	 */
+	@PostMapping("/listarContactos")//----------------------da error, pero la lista se genera bien
+	public ModelAndView listarContactos(@RequestParam("id") int id, Perfil p) {
+		logger.info("****************************Entrando en listarContactos");
+		ModelAndView model= new ModelAndView("paginaPerfil"); //-----deveriamos crear una pagina nueva para esto
+			p = servicio.getPerfil(id);
+			List<Perfil> l = servicio.listaContactos(1);
+			model.addObject("perfil", p);
+			model.addObject("listaperfil",l);
+		
 		
 		return model;
 	}

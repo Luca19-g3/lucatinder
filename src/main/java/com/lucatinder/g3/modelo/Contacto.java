@@ -28,14 +28,17 @@ import javax.persistence.NamedQuery;
 
 		@Id
 		@Column(name="id_contacto")
+		
 		private int idContacto;
 
 		//bi-directional many-to-one association to Perfil
+		//--likeADOR
 		@ManyToOne
 		@JoinColumn(name="id_perfil")
 		private Perfil perfil1;
 
 		//bi-directional many-to-one association to Perfil
+		//--likeADO
 		@ManyToOne
 		@JoinColumn(name="id_like")
 		private Perfil perfil2;

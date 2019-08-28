@@ -18,4 +18,5 @@ public interface PerfilDAO {
 	public Perfil newPerfil(Perfil p);
 	public Perfil getPerfil(int id);
 	public List<Perfil> getListaPerfil(int id, int longitud);
+	public List<Perfil> listaContactos(int id);
 }
