@@ -11,7 +11,7 @@
 			value="Entrar" />
 	</form>
 
-	<form method="post" th:object="${perfil}" th:action="@{/newrest}">
+	<form method="post" th:object="${perfil}" th:action="@{/new}">
 		<label for="nombre">Email</label> <input type="email"
 			th:field="*{correo}" /> <label for="password">Contraseña</label> <input
 			type="password" th:field="*{password}" maxlength="16"> <label

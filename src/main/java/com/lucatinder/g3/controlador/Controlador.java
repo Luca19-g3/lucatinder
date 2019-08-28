@@ -66,10 +66,16 @@ public class Controlador {
 	 */
 	
 	@PostMapping("/entrar")
-	public String login(ModelMap model,@RequestParam("id")int id) {
+	public ModelAndView login(@RequestParam("id")int id) {
 		logger.info("****************************Intentando entrar");
-		model.addAttribute("perfil", servicio.getPerfil(id) );
-		return "paginaPerfil";
+		ModelAndView model;
+		if (servicio.getPerfil(id) == null) {
+			model = new ModelAndView("redirect:/");
+		} else {
+			model = new ModelAndView("paginaPerfil");
+			model.addObject("perfil", servicio.getPerfil(id) );
+		}
+		return model;
 	}
 
 	/**
