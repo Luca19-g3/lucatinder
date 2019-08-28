@@ -82,7 +82,10 @@ public class Controlador {
 			logger.info("******************************************************************" + e.getMensaje());
 		} else {
 			model = new ModelAndView("paginaPerfil");
-			model.addObject("perfil", servicio.getPerfil(id));
+			p = servicio.getPerfil(id);
+			model.addObject("perfil", p);
+			model.addObject("listaperfil",servicio.getListaPerfil(p.getId(),20));
+			logger.info(servicio.getListaPerfil(p.getId(), 20).toString());
 		}
 		return model;
 	}
