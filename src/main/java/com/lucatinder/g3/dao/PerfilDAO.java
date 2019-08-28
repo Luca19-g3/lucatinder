@@ -1,5 +1,7 @@
 package com.lucatinder.g3.dao;
 
+import java.util.List;
+
 import com.lucatinder.g3.modelo.Perfil;
 /**
  * Interface PerfilDAO
@@ -15,4 +17,5 @@ public interface PerfilDAO {
 
 	public Perfil newPerfil(Perfil p);
 	public Perfil getPerfil(int id);
+	public List<Perfil> getListaPerfil(int id, int longitud);
 }
