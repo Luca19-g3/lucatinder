@@ -51,10 +51,8 @@ public class Controlador {
 	@GetMapping("/")
 	public ModelAndView palIndex(@ModelAttribute("perfil") Perfil p, ErrorPropio e){
 		ModelAndView model = new ModelAndView("index");
-
 		e = new ErrorPropio();
 		model.addObject("errorpropio", e);
-		logger.info("*****************************************************"+e.getMensaje());
 		return model;
 	}
 
