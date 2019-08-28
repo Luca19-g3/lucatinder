@@ -2,6 +2,7 @@ package com.lucatinder.g3.servicios;
 
 import org.springframework.stereotype.Service;
 
+import com.lucatinder.g3.modelo.ErrorPropio;
 import com.lucatinder.g3.modelo.Perfil;
 @Service
 public interface Servicio {
@@ -18,5 +19,5 @@ public interface Servicio {
 
 	public Perfil newPerfil(Perfil p);
 	public Perfil getPerfil(int id);
-
+	public ErrorPropio setError(String msg);
 }

@@ -31,13 +31,12 @@ public class Perfil {
 	private String descripcion;
 	private int edad;
 	private char preferencias;
-	private char edad_min;
-	private char edad_max;
+
 
 	
 	
 	public Perfil() {
-		
+
 	}
 	
 	@Id
@@ -107,25 +106,12 @@ public class Perfil {
 		this.preferencias = preferencias;
 	}
 	
-	public char getEdad_min() {
-		return edad_min;
-	}
 
-	public void setEdad_min(char edad_min) {
-		this.edad_min = edad_min;
-	}
 
-	public char getEdad_max() {
-		return edad_max;
-	}
-
-	public void setEdad_max(char edad_max) {
-		this.edad_max = edad_max;
-	}
 
 
 	public String toString() {
-		return "Perfil:\n\tId: " + id + ",\n\tCorreo: " + correo + ",\n\tPassword: " + password + ",\n\tNombre: " + nombre + ",\n\tEdad: " + edad + ",\n\tGénero: " + genero + ",\n\tPreferencias sexuales: " + preferencias + ",\n\tEdad mínima de búsqueda: " + edad_min + ",\n\tEdad máxima de búsqueda: " + edad_max + ",\n\tDescripción: " + descripcion;
+		return "Perfil:\n\tId: " + id + ",\n\tCorreo: " + correo + ",\n\tPassword: " + password + ",\n\tNombre: " + nombre + ",\n\tEdad: " + edad + ",\n\tGénero: " + genero + ",\n\tPreferencias sexuales: " + preferencias + ",\n\tDescripción: " + descripcion;
 	}
 	
 }

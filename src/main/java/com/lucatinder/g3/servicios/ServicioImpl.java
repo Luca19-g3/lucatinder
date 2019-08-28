@@ -9,7 +9,9 @@ import org.springframework.stereotype.Service;
 
 import com.lucatinder.g3.LucaTinderApplication;
 import com.lucatinder.g3.dao.PerfilDAO;
+import com.lucatinder.g3.modelo.ErrorPropio;
 import com.lucatinder.g3.modelo.Perfil;
+
 
 /**
  * Clase ServicioImpl
@@ -30,6 +32,8 @@ public class ServicioImpl implements Servicio {
 
 	@Autowired
 	private PerfilDAO perfilDao;
+	@Autowired
+	private ErrorPropio error;
 
 	/**
 	 * Metodo newPerfil
@@ -51,6 +55,7 @@ public class ServicioImpl implements Servicio {
 		return perfilDao.newPerfil(p);
 
 	}
+
 	/**
 	 * Metodo getPerfil
 	 * 
@@ -68,6 +73,13 @@ public class ServicioImpl implements Servicio {
 	public Perfil getPerfil(int id) {
 		logger.info("Ejecutando el metodo getPerfil en la clase ServicioImpl");
 		return perfilDao.getPerfil(id);
+	}
+
+	@Override
+	public ErrorPropio setError(String msg) {
+		logger.info("Ejecutando el metodo setError en la clase ServicioImpl");
+		error.setMensaje(msg);
+		return error;
 	}
 
 }

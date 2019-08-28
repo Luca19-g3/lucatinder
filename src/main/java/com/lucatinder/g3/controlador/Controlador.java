@@ -71,7 +71,7 @@ public class Controlador {
 		ModelAndView model;
 		if (servicio.getPerfil(id) == null) {
 			model = new ModelAndView("redirect:/");
-			model.addObject("error", "eee");
+			model.addObject("errorpropio", servicio.setError("Ese id no existe"));
 		} else {
 			model = new ModelAndView("paginaPerfil");
 			model.addObject("perfil", servicio.getPerfil(id) );
