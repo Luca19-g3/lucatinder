@@ -1,6 +1,7 @@
 package com.lucatinder.g3.utilidades;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 import org.slf4j.Logger;
@@ -76,10 +77,10 @@ public class FakePerfiles {
 	 * @author jesus
 	 */
 
-	public static ArrayList<Perfil> perfilesRamdom(int cantidad) {
+	public static List<Perfil> perfilesRamdom(int cantidad) {
 		Logger logger = LoggerFactory.getLogger(FakePerfiles.class);
 		logger.info("entrando en perfilesRamdom");
-		ArrayList<Perfil> listPerfil = new ArrayList<Perfil>();
+		List<Perfil> listPerfil = new ArrayList<Perfil>();
 		
 		while (cantidad>0) {
 			cantidad--;

@@ -1,5 +1,7 @@
 package com.lucatinder.g3.servicios;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.slf4j.Logger;
@@ -11,6 +13,7 @@ import com.lucatinder.g3.LucaTinderApplication;
 import com.lucatinder.g3.dao.PerfilDAO;
 import com.lucatinder.g3.modelo.ErrorPropio;
 import com.lucatinder.g3.modelo.Perfil;
+import com.lucatinder.g3.utilidades.FakePerfiles;
 
 
 /**
@@ -80,6 +83,27 @@ public class ServicioImpl implements Servicio {
 		logger.info("Ejecutando el metodo setError en la clase ServicioImpl");
 		error.setMensaje(msg);
 		return error;
+	}
+
+	
+	/**
+	 * Metodo crearPerfilFalso
+	 * 
+	 * crea una lissta de diversos perfiles falsos
+	 * 
+	 * @param cantidad Nº de perfiles que crea
+	 * @return lista de perfiles
+	 * @version 1.0
+	 * @author Jesus
+	 * 
+	 *         28/08/2019
+	 * 
+	 */
+	
+	@Override
+	public List<Perfil> crearPerfilFalso(int cantidad) {
+		
+		return   FakePerfiles.perfilesRamdom(cantidad);
 	}
 
 }
