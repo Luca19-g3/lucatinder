@@ -17,7 +17,6 @@
     <div class="container-fluid p-0" id="contenedor-index">
         <div class="filtro_oscuro d-flex align-items-center">
             <div class="col-12 col-md-8 mx-auto text-white bg-oscuro px-5 py-5">
-                <span th:text="${errorpropio.mensaje}"></span>
                 <div class="text-center">
                     <img src="/resources/img/logo.png" class="fluid-img col-3" alt="logo">
                 </div>
@@ -27,6 +26,9 @@
                     <div class="row col-4 m-0 mt-4 p-0 pr-2 mx-auto">
                         <label for="perfil_id" class="col-4 fs-12">Id</label>
                         <input class="form-control col-8" id="perfil_id" type="text" th:field="*{id}" required />
+                    </div>
+                    <div>
+                    	<p class="m-0"><span th:text="${errorpropio.mensaje}" class="text-danger font-weight-bold"></span></p>
                     </div>
                     <div class="col-4 m-0 mt-4 p-0 pl-2  mx-auto">
                         <input class="btn btn-outline-info btn-block btn-color-propio" type="submit" value="Entrar" />
