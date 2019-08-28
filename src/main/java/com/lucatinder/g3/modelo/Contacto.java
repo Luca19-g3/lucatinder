@@ -9,6 +9,17 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 
+/**
+ * Clase Contacto.
+ * 
+ * Clase para modelar los datos de los contactos.
+ *
+ * @version 1.0
+ * @author Jorge con wizard EclipseLink
+ * 
+ * 27/08/2019
+ * 
+ */
 
 	@Entity
 	@NamedQuery(name="Contacto.findAll", query="SELECT c FROM Contacto c")

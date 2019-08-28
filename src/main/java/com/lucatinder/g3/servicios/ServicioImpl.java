@@ -86,30 +86,8 @@ public class ServicioImpl implements Servicio {
 	}
 
 	
-	/**
-	 * Metodo crearPerfilFalso
-	 * 
-	 * crea una lissta de diversos perfiles falsos
-	 * 
-	 * @param cantidad Nº de perfiles que crea
-	 * @version 1.0
-	 * @author Jesus
-	 * 
-	 *         28/08/2019
-	 * 
-	 */
-	
-	@Override
-	public void crearPerfilFalso(int cantidad) {
-		logger.info("Ejecutando el metodo CrearPerfilFalso en la clase ServicioImpl");
-		 List<Perfil> listPerfil =FakePerfiles.perfilesRamdom(cantidad);
-		
-		for (int i = 0; i < listPerfil.size(); i++) {
-			newPerfil(listPerfil.get(i));
-		}
-		
-		
-	}
+
+
 	/**
 	 * Metodo getListaPerfil
 	 * 
@@ -125,13 +103,47 @@ public class ServicioImpl implements Servicio {
 	 * 
 	 */
 	@Override
-	public List<Perfil> getListaPerfil(int id, int longitud) {
-		logger.info("Ejecutando el metodo getListaPerfil en la clase ServicioImpl");
-		List<Perfil>listPerfil = perfilDao.getListaPerfil(id, longitud);
-			return listPerfil;
-		}
+	 public List<Perfil> getListaPerfil(int id, int longitud) {
+        logger.info("Ejecutando el metodo getListaPerfil en la clase ServicioImpl");
+        List<Perfil> listPerfil = perfilDao.getListaPerfil(id, longitud);
+        if (listPerfil.size()==longitud ) {
+            return listPerfil;
+        } else {
+            crearPerfilFalso(longitud);
+            listPerfil = perfilDao.getListaPerfil(id, longitud);
+            return listPerfil;
+        }
+        
+        
+        
+    }
+
 		
-		
+	
+	  /**
+	   * Metodo crearPerfilFalso
+	   * 
+	   * crea una lissta de diversos perfiles falsos
+	   * 
+	   * @param cantidad Nº de perfiles que crea
+	   * @version 1.0
+	   * @author Jesus
+	   * 
+	   *     28/08/2019
+	   * 
+	   */
+	  
+	  @Override
+	  public void crearPerfilFalso(int cantidad) {
+	    logger.info("Ejecutando el metodo CrearPerfilFalso en la clase ServicioImpl");
+	     List<Perfil> listPerfil =FakePerfiles.perfilesRamdom(cantidad);
+	    
+	    for (int i = 0; i < listPerfil.size(); i++) {
+	      Perfil p = newPerfil(listPerfil.get(i));
+	    }
+	    
+	    
+	  }
 		
 	
 
