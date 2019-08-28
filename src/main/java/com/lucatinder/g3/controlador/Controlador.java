@@ -78,7 +78,9 @@ public class Controlador {
 		ModelAndView model;
 		if (servicio.getPerfil(id) == null) {
 			model = new ModelAndView("index");
-			model.addObject("errorpropio", servicio.setError("Este id no existe"));
+					e.setMensajeCreada(" ");
+			e.setMensaje("Este id no existe");
+			model.addObject("errorpropio", e);
 			logger.info("******************************************************************" + e.getMensaje());
 		} else {
 			model = new ModelAndView("paginaPerfil");
@@ -109,7 +111,11 @@ public class Controlador {
 		servicio.newPerfil(p);
 		logger.info("******************************Perfil GUARDADO" + p.toString());
 		ModelAndView model = new ModelAndView("index");
-		model.addObject("errorpropio", servicio.setMensajeCrear("Tu cuenta ha sido creada."));
+		e = new ErrorPropio();
+		e.setMensaje(" ");
+		e.setMensajeCreada("Tu cuenta ha sido creada.");
+		model.addObject("errorpropio", e);
+		
 		return model;
 	}
 }
