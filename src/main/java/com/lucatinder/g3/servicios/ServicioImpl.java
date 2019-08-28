@@ -106,7 +106,7 @@ public class ServicioImpl implements Servicio {
 		return   FakePerfiles.perfilesRamdom(cantidad);
 	}
 	/**
-	 * Metodo crearPerfilFalso
+	 * Metodo getListaPerfil
 	 * 
 	 * Crea una lista de perfiles
 	 * 
