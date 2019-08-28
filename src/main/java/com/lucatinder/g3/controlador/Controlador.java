@@ -85,7 +85,7 @@ public class Controlador {
 			p = servicio.getPerfil(id);
 			model.addObject("perfil", p);
 			model.addObject("listaperfil",servicio.getListaPerfil(p.getId(),20));
-			logger.info(servicio.getListaPerfil(p.getId(), 20).toString());
+		
 		}
 		return model;
 	}

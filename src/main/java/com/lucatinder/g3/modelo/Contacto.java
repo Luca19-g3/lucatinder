@@ -1,0 +1,60 @@
+package com.lucatinder.g3.modelo;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
+
+
+	@Entity
+	@NamedQuery(name="Contacto.findAll", query="SELECT c FROM Contacto c")
+	public class Contacto implements Serializable {
+		private static final long serialVersionUID = 1L;
+
+		@Id
+		@Column(name="id_contacto")
+		private int idContacto;
+
+		//bi-directional many-to-one association to Perfil
+		@ManyToOne
+		@JoinColumn(name="id_perfil")
+		private Perfil perfil1;
+
+		//bi-directional many-to-one association to Perfil
+		@ManyToOne
+		@JoinColumn(name="id_like")
+		private Perfil perfil2;
+
+		public Contacto() {
+		}
+
+		public int getIdContacto() {
+			return this.idContacto;
+		}
+
+		public void setIdContacto(int idContacto) {
+			this.idContacto = idContacto;
+		}
+
+		public Perfil getPerfil1() {
+			return this.perfil1;
+		}
+
+		public void setPerfil1(Perfil perfil1) {
+			this.perfil1 = perfil1;
+		}
+
+		public Perfil getPerfil2() {
+			return this.perfil2;
+		}
+
+		public void setPerfil2(Perfil perfil2) {
+			this.perfil2 = perfil2;
+		}
+
+	}
+

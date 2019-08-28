@@ -127,17 +127,12 @@ public class ServicioImpl implements Servicio {
 	@Override
 	public List<Perfil> getListaPerfil(int id, int longitud) {
 		logger.info("Ejecutando el metodo getListaPerfil en la clase ServicioImpl");
-		List listPerfil = perfilDao.getListaPerfil(id, longitud);
-		if (listPerfil.size()==longitud ) {
-			return listPerfil;
-		} else {
-			crearPerfilFalso(longitud);
-			listPerfil = perfilDao.getListaPerfil(id, longitud);
+		List<Perfil>listPerfil = perfilDao.getListaPerfil(id, longitud);
 			return listPerfil;
 		}
 		
 		
 		
-	}
+	
 
 }
