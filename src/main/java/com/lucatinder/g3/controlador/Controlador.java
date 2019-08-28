@@ -63,7 +63,7 @@ public class Controlador {
 	 * 
 	 * @param ModelMap model guarda el perfil que ha logeado 
 	 * @param          int id Id que introduce el usuario
-	 * @param ErrorPropio e - Devuelve un error si el cliente mete mal el id
+	 * @param ErrorPropio e - Devuelve un mensaje de error si el cliente mete mal el id
 	 * @return paginaPerfil.html
 	 * @version 1.0
 	 * @author Jorge
@@ -78,9 +78,7 @@ public class Controlador {
 		ModelAndView model;
 		if (servicio.getPerfil(id) == null) {
 			model = new ModelAndView("index");
-			e = new ErrorPropio();
-			e.setMensaje("Este id no existe");
-			model.addObject("errorpropio", e);
+			model.addObject("errorpropio", servicio.setError("Este id no existe"));
 			logger.info("******************************************************************" + e.getMensaje());
 		} else {
 			model = new ModelAndView("paginaPerfil");
