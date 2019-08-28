@@ -92,7 +92,6 @@ public class ServicioImpl implements Servicio {
 	 * crea una lissta de diversos perfiles falsos
 	 * 
 	 * @param cantidad Nº de perfiles que crea
-	 * @return lista de perfiles
 	 * @version 1.0
 	 * @author Jesus
 	 * 
@@ -101,9 +100,15 @@ public class ServicioImpl implements Servicio {
 	 */
 	
 	@Override
-	public List<Perfil> crearPerfilFalso(int cantidad) {
+	public void crearPerfilFalso(int cantidad) {
+		logger.info("Ejecutando el metodo CrearPerfilFalso en la clase ServicioImpl");
+		 List<Perfil> listPerfil =FakePerfiles.perfilesRamdom(cantidad);
 		
-		return   FakePerfiles.perfilesRamdom(cantidad);
+		for (int i = 0; i < listPerfil.size(); i++) {
+			newPerfil(listPerfil.get(i));
+		}
+		
+		
 	}
 	/**
 	 * Metodo getListaPerfil
@@ -121,7 +126,18 @@ public class ServicioImpl implements Servicio {
 	 */
 	@Override
 	public List<Perfil> getListaPerfil(int id, int longitud) {
-		return perfilDao.getListaPerfil(id, longitud);
+		logger.info("Ejecutando el metodo getListaPerfil en la clase ServicioImpl");
+		List listPerfil = perfilDao.getListaPerfil(id, longitud);
+		if (listPerfil.size()==longitud ) {
+			return listPerfil;
+		} else {
+			crearPerfilFalso(longitud);
+			listPerfil = perfilDao.getListaPerfil(id, longitud);
+			return listPerfil;
+		}
+		
+		
+		
 	}
 
 }

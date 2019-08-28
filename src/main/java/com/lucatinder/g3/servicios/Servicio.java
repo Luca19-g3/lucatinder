@@ -22,5 +22,5 @@ public interface Servicio {
 	public Perfil newPerfil(Perfil p);
 	public Perfil getPerfil(int id);
 	public ErrorPropio setError(String msg);
-	public List<Perfil> crearPerfilFalso(int cantidad);
+	public void crearPerfilFalso(int cantidad);
 }
