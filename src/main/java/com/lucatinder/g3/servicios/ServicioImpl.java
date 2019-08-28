@@ -105,5 +105,23 @@ public class ServicioImpl implements Servicio {
 		
 		return   FakePerfiles.perfilesRamdom(cantidad);
 	}
+	/**
+	 * Metodo crearPerfilFalso
+	 * 
+	 * Crea una lista de perfiles
+	 * 
+	 * @param id del usuario que no se muestra
+	 * @param longitud longitud de la lista
+	 * @return lista de perfiles
+	 * @version 1.0
+	 * @author Jorge
+	 * 
+	 *         28/08/2019
+	 * 
+	 */
+	@Override
+	public List<Perfil> getListaPerfil(int id, int longitud) {
+		return perfilDao.getListaPerfil(id, longitud);
+	}
 
 }

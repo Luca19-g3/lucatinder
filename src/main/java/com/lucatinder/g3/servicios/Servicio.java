@@ -18,7 +18,7 @@ public interface Servicio {
 	 * 27/08/2019
 	 * 
 	 */
-
+	public List<Perfil> getListaPerfil(int id, int longitud);
 	public Perfil newPerfil(Perfil p);
 	public Perfil getPerfil(int id);
 	public ErrorPropio setError(String msg);
