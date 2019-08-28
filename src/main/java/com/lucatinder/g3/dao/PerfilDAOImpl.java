@@ -1,7 +1,10 @@
 package com.lucatinder.g3.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -69,5 +72,27 @@ public class PerfilDAOImpl implements PerfilDAO {
 		logger.info("Ejecutando el metodo getPerfil en la clase ServicioImpl");
 		return entityManager.find(Perfil.class, id);
 	}
+	/**
+    * Método getListaPerfil
+    *
+    * Método para obtener una lista de usuarios con id distinto del id dado y longitud definida
+    *
+    * @param int id Id del perfil a evitar en la lista de usuarios
+    * @param int longitud Longitud de la lista devuelta
+    * @return List<Perfil> Lista con n objetos de tipo Perfil obtenidos
+    * @version 1.0
+    * @author Joaquin
+    *
+    *         28/08/2019
+    *
+    */
 
+   @SuppressWarnings("unchecked")
+@Override
+   @Transactional
+   public List<Perfil> getListaPerfil(int id, int longitud) {
+       logger.info("Ejecutando el metodo getListaPerfil en la clase ServicioImpl");
+       String hql = "FROM Perfil WHERE id != " + id ;
+       return (List<Perfil>) entityManager.createQuery(hql).setMaxResults(longitud).getResultList();
+   }
 }

@@ -53,7 +53,7 @@ public class LucaTinderApplicationTests {
 		ArrayList<Perfil> listPerfil = new ArrayList<Perfil>();
 		
 		 
-		listPerfil = FakePerfiles.perfilesRamdom(20);
+	/*	listPerfil = FakePerfiles.perfilesRamdom(20); */
 		
 		listPerfil.toString();
 		 assertEquals(20, listPerfil.size());

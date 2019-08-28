@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.lucatinder.g3.LucaTinderApplication;
+import com.lucatinder.g3.modelo.ErrorPropio;
 import com.lucatinder.g3.modelo.Perfil;
 import com.lucatinder.g3.servicios.Servicio;
 
@@ -33,6 +34,7 @@ public class Controlador {
 	private static final Logger logger = LoggerFactory.getLogger(LucaTinderApplication.class);
 	@Autowired
 	private Servicio servicio;
+
 	/**
 	 * Metodo palIndex
 	 * 
@@ -47,16 +49,23 @@ public class Controlador {
 	 * 
 	 */
 	@GetMapping("/")
-	public String palIndex(@ModelAttribute("perfil") Perfil p) {
-		return "index";
+	public ModelAndView palIndex(@ModelAttribute("perfil") Perfil p, ErrorPropio e){
+		ModelAndView model = new ModelAndView("index");
+
+		e = new ErrorPropio();
+		model.addObject("errorpropio", e);
+		logger.info("*****************************************************"+e.getMensaje());
+		return model;
 	}
+
 	/**
 	 * Metodo login
 	 * 
 	 * Metodo para entrar a la aplicacion
 	 * 
-	 * @param ModelMap model guarda el perfil que ha logeado
-	 * @param int id Id que introduce el usuario
+	 * @param ModelMap model guarda el perfil que ha logeado 
+	 * @param          int id Id que introduce el usuario
+	 * @param ErrorPropio e - Devuelve un error si el cliente mete mal el id
 	 * @return paginaPerfil.html
 	 * @version 1.0
 	 * @author Jorge
@@ -64,17 +73,20 @@ public class Controlador {
 	 *         27/08/2019
 	 * 
 	 */
-	
+
 	@PostMapping("/entrar")
-	public ModelAndView login(@RequestParam("id")int id) {
+	public ModelAndView login(@RequestParam("id") int id, ErrorPropio e, Perfil p) {
 		logger.info("****************************Intentando entrar");
 		ModelAndView model;
 		if (servicio.getPerfil(id) == null) {
-			model = new ModelAndView("redirect:/");
-			model.addObject("errorpropio", servicio.setError("Ese id no existe"));
+			model = new ModelAndView("index");
+			e = new ErrorPropio();
+			e.setMensaje("Este id no existe");
+			model.addObject("errorpropio", e);
+			logger.info("******************************************************************" + e.getMensaje());
 		} else {
 			model = new ModelAndView("paginaPerfil");
-			model.addObject("perfil", servicio.getPerfil(id) );
+			model.addObject("perfil", servicio.getPerfil(id));
 		}
 		return model;
 	}
@@ -96,7 +108,7 @@ public class Controlador {
 	public ModelAndView newPerfil(@ModelAttribute("perfil") Perfil p) {
 		logger.info("**************************************GUARDANDO Perfil");
 		servicio.newPerfil(p);
-		logger.info("******************************Perfil GUARDADO" +p.toString());
+		logger.info("******************************Perfil GUARDADO" + p.toString());
 		ModelAndView model = new ModelAndView("redirect:/");
 		return model;
 	}
