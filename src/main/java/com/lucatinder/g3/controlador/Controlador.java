@@ -184,5 +184,21 @@ public class Controlador {
 		model.addObject("perfil", p);
 		return model;
 	}
+	
+	/**
+	 * guarda el dislike
+	 * @param id1 id del perfil que da a dislike
+	 * @param id2 id del perfil al que le da dislike
+	 * @return
+	 */
+	@GetMapping("/darDisLike")
+	public ModelAndView darDislike(@RequestParam("id1") int id1, @RequestParam("id2") int id2) {
+		servicio.darDislike(id1, id2);
+		ModelAndView model = new ModelAndView("selector");
+		model.addObject("id", id1);
+		Perfil p = servicio.getPerfilRamdom(id1);
+		model.addObject("perfil", p);
+		return model;
+	}
 
 }

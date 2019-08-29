@@ -214,7 +214,7 @@ public class ServicioImpl implements Servicio {
 		
 	}
 	/**
-	 * @param 
+	 * @param id del perfil para que no se incluya en 
 	 * @return Perfil p perfil seleccionado aleatoriamente entre todos nuestros usuarios
 	 * @author jesus
 	 */
@@ -222,6 +222,15 @@ public class ServicioImpl implements Servicio {
 	public Perfil getPerfilRamdom(int id) {
 		
 		return perfilDao.getPerfilRamdom(id);
+	}
+
+
+	
+	
+	@Override
+	public void darDislike(int id1, int id2) {
+		perfilDao.darDislike(id1, id2);
+		
 	}
 		
 	

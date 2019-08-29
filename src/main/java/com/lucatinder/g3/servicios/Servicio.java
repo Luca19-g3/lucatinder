@@ -27,4 +27,5 @@ public interface Servicio {
 	public List<Perfil> listaContactos(int id);
 	public void darLike(int id1, int id2);
 	public Perfil getPerfilRamdom(int id);
+	public void darDislike(int id1, int id2);
 }
