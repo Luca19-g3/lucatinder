@@ -127,7 +127,20 @@ public class PerfilDAOImpl implements PerfilDAO {
 		logger.info("------------------" + listContacto.toString());
 		return listContacto;
 	}
-
+	/**
+	 * Metodo darLike
+	 * 
+	 * metodo para dar like
+	 * 
+	 * @param id 1 id del usuario que da like
+	 * @param id 2 id del usuario que recibe el like
+	 * @return void
+	 * @version 1.0
+	 * @author jesus
+	 * 
+	 *         28/08/2019
+	 * 
+	 */
 	@Override
 	public void darLike(int id1, int id2) {
 		logger.info("----------------------------------------Vamo a dar un like");
@@ -144,10 +157,10 @@ public class PerfilDAOImpl implements PerfilDAO {
 	 * 
 	 
 	 * 
-	 * @param 
-	 * @return 
+	 * @param id de los 2 usuarios
+	 * @return leGusto boolean
 	 * @version 1.0
-	 * @author gorje
+	 * @author jorge
 	 * @author jesus
 	 * 
 	 *         29/08/2019
@@ -157,7 +170,7 @@ public class PerfilDAOImpl implements PerfilDAO {
 		boolean leGusto;
 	
 			logger.info("------Entrando en comprobar like, en un filo te digo si le gustas");
-			Object o = entityManager.createNativeQuery("SELECT Count(id_contacto) FROM contacto WHERE id_contacto=1 AND id_like=2").getSingleResult();
+			Object o = entityManager.createNativeQuery("SELECT Count(id_contacto) FROM contacto WHERE id_contacto="+id1+" AND id_like="+id2).getSingleResult();
 			String s = o.toString();
 			int num = Integer.parseInt(s);	
 			System.out.println(num);

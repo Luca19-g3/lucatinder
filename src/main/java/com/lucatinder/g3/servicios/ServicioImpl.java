@@ -77,7 +77,19 @@ public class ServicioImpl implements Servicio {
 		logger.info("Ejecutando el metodo getPerfil en la clase ServicioImpl");
 		return perfilDao.getPerfil(id);
 	}
-
+	/**
+	 * Metodo setError
+	 * 
+	 * Metodo para mandar un mensaje de error
+	 * 
+	 * @param String msg Mensaje que muestra
+	 * @return Error error
+	 * @version 1.0
+	 * @author Jorge
+	 * 
+	 *         27/08/2019
+	 * 
+	 */
 	@Override
 	public ErrorPropio setError(String msg) {
 		logger.info("Ejecutando el metodo setError en la clase ServicioImpl");
@@ -145,7 +157,19 @@ public class ServicioImpl implements Servicio {
 	    
 	    
 	  }
-
+		/**
+		 * Metodo setMensajeCrear
+		 * 
+		 * Metodo para mandar un mensaje
+		 * 
+		 * @param String msg Mensaje que muestra
+		 * @return Error error
+		 * @version 1.0
+		 * @author Jorge
+		 * 
+		 *         27/08/2019
+		 * 
+		 */
 	@Override
 	public ErrorPropio setMensajeCrear(String msg) {
 		error.setMensajeCreada(msg);

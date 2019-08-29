@@ -5,12 +5,10 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -80,12 +78,12 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 		public Perfil() {
 		}
 
-		public int getIdPerfil() {
+		public int getId() {
 			return this.id;
 		}
 
-		public void setIdPerfil(int idPerfil) {
-			this.id = idPerfil;
+		public void setId(int id) {
+			this.id = id;
 		}
 
 		public String getCorreo() {
