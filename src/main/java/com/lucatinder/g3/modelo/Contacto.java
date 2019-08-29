@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 /**
  * Clase Contacto.
  * 
@@ -35,12 +37,14 @@ import javax.persistence.NamedQuery;
 		//--likeADOR
 		@ManyToOne
 		@JoinColumn(name="id_perfil")
+		@JsonBackReference
 		private Perfil perfil1;
 
 		//bi-directional many-to-one association to Perfil
 		//--likeADO
 		@ManyToOne
 		@JoinColumn(name="id_like")
+		@JsonBackReference
 		private Perfil perfil2;
 
 		public Contacto() {

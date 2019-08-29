@@ -1,16 +1,18 @@
 package com.lucatinder.g3.controlador;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lucatinder.g3.LucaTinderApplication;
 import com.lucatinder.g3.modelo.Perfil;
 import com.lucatinder.g3.servicios.Servicio;
-
-
 
 /**
  * Clase ControladorRest
@@ -25,15 +27,36 @@ import com.lucatinder.g3.servicios.Servicio;
  */
 @RestController
 public class ControladorRest {
-private static final Logger logger = LoggerFactory.getLogger(LucaTinderApplication.class);
-	
+	private static final Logger logger = LoggerFactory.getLogger(LucaTinderApplication.class);
+
 	@Autowired
 	private Servicio servicio;
-	
-	
+
 	@PostMapping(value = "/newrest")
 	public Perfil newPerfil(Perfil p) {
 		servicio.newPerfil(p);
 		return p;
 	}
+
+	/**
+	 * Método obtenerPerfilesRest
+	 * 
+	 * Método para obtener una lista de 20 perfiles a través de REST
+	 * 
+	 * @param int id Id del perfil al que se mostrará la lista
+	 * @return List<Perfil> Lista con 20 objetos de tipo Perfil
+	 * @version 1.0
+	 * @author Joaquin
+	 * 
+	 *         29/08/2019
+	 * 
+	 */
+
+	@SuppressWarnings("null")
+	@GetMapping(value = "/perfilesrest")
+	public List<Perfil> obtenerPerfilesRest(@RequestParam("id") int id) {
+		logger.info("-----Ejecutando el metodo obtenerPerfilesRest en la clase ControladorRest");
+		return servicio.getListaPerfil(id, 20);
+	}
+
 }

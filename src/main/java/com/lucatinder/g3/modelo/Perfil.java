@@ -12,6 +12,8 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 /**
  * Clase Perfil
  * 
@@ -54,11 +56,13 @@ import javax.persistence.Table;
 		//bi-directional many-to-one association to Contacto 
 		//---aqui se guardan los perfiles a los que a dado like---
 		@OneToMany(mappedBy="perfil1")
+		@JsonManagedReference
 		private List<Contacto> contactos1;
 
 		//bi-directional many-to-one association to Contacto
 		//---aqui se guardan los perfiles que han dado a like al Perfil---
 		@OneToMany(mappedBy="perfil2")
+		@JsonManagedReference
 		private List<Contacto> contactos2;
 
 		public Perfil() {
@@ -176,7 +180,7 @@ import javax.persistence.Table;
 
 
 	public String toString() {
-		return "Perfil:\n\tId: " + id + ",\n\tCorreo: " + correo + ",\n\tPassword: " + password + ",\n\tNombre: " + nombre + ",\n\tEdad: " + edad + ",\n\tGénero: " + genero + ",\n\tPreferencias sexuales: " + preferencias + ",\n\tDescripción: " + descripcion;
+		return "\nPerfil:\n\tId: " + id + ",\n\tCorreo: " + correo + ",\n\tPassword: " + password + ",\n\tNombre: " + nombre + ",\n\tEdad: " + edad + ",\n\tGénero: " + genero + ",\n\tPreferencias sexuales: " + preferencias + ",\n\tDescripción: " + descripcion;
 	}
 	
 }
