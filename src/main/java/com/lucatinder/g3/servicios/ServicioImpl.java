@@ -194,6 +194,12 @@ public class ServicioImpl implements Servicio {
 		
 		return perfilDao.listaContactos(id);
 	}
+
+	@Override
+	public void darLike(int id1, int id2) {
+		perfilDao.darLike(id1, id2);
+		
+	}
 		
 	
 

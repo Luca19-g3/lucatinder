@@ -25,4 +25,5 @@ public interface Servicio {
 	public void crearPerfilFalso(int cantidad);
 	public ErrorPropio setMensajeCrear(String msg);
 	public List<Perfil> listaContactos(int id);
+	public void darLike(int id1, int id2);
 }
