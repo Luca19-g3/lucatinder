@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 
 import com.lucatinder.g3.LucaTinderApplication;
 import com.lucatinder.g3.modelo.Contacto;
+import com.lucatinder.g3.modelo.Descarte;
 import com.lucatinder.g3.modelo.Perfil;
 
 /**
@@ -141,6 +142,7 @@ public class PerfilDAOImpl implements PerfilDAO {
 	 *         28/08/2019
 	 * 
 	 */
+	@Transactional
 	@Override
 	public void darLike(int id1, int id2) {
 		logger.info("----------------------------------------Vamo a dar un like");
@@ -149,6 +151,7 @@ public class PerfilDAOImpl implements PerfilDAO {
 		Contacto c = new Contacto();
 		c.setPerfil1(p);
 		c.setPerfil2(p2);
+		entityManager.merge(c);
 
 	}
 	
@@ -189,26 +192,34 @@ public class PerfilDAOImpl implements PerfilDAO {
 		return leGusto;
 	}
 
-}
-
+	/**
+	 * Metodo darDislike
+	 * 
+	 * Guarda los perfiles de un perfil que ha dado dislike y el perfil al que se lo ha dado
+	 * 
+	 * @param id de los 2 perfil, el Deslikeador y el Deslikeado
+	 * @version 1.0
+	 * @author jesus
+	 * 
+	 *         29/08/2019
+	 * 
+	 */
 	
-	
-	
-	/*
-	boolean leGusto;
-	try {
-		System.out.println("------try");
-		int s = entityManager.createNativeQuery("SELECT * FROM contacto WHERE id_contacto=5 AND id_like=2").getMaxResults();
-		System.out.println("---------"+ s);
-		leGusto = true;
-		
-	} catch (Exception e) {
-		System.out.println(e);
-		System.out.println("--------------------");
-		leGusto = false;
+	@Transactional
+	@Override
+	public void darDislike(int id1, int id2)  {
+		logger.info("----------------------------------------Entrando en dardislike");
+		Perfil p = getPerfil(id1);
+		Perfil p2 = getPerfil(id2);
+		Descarte d = new Descarte();
+		d.setPerfil1(p);
+		d.setPerfil2(p2);
+		entityManager.merge(d);
+		logger.info(d.toString());
 	}
 
-	logger.info("----------------------------------------------------------------" + leGusto);
-	return leGusto;
 }
-	*/
+
+	
+	
+	

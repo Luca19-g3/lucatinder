@@ -26,7 +26,7 @@ public class LucaTinderApplicationTests {
 	 
 	@Test
 	public void contextLoads() {
-		pruebaLike();
+		pruebadislike();
 		
 	}
 	
@@ -84,6 +84,14 @@ public class LucaTinderApplicationTests {
 		 assertTrue(prueba);
 		 
 		 
+		 
+	 }
+	 
+	 public void pruebadislike() {
+		 perfil.darDislike(5, 55);
+		 System.out.println("--------------------------------------------dislike dao -");
+		 perfil.darLike(5, 54);
+		 System.out.println("--------------------------------------------like dao -");
 		 
 	 }
 }
