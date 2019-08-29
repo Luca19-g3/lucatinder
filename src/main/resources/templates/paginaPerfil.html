@@ -36,7 +36,7 @@
                     <a class="nav-link" href="#"><img src="logo.png" class="fluid-img" alt="logo"></a>
                 </li> -->
                 <li class="nav-item pr-lg-4">
-                    <a class="nav-link" th:href="@{/contactos}"><i class="fas fa-heart color-propio pr-2"></i>Contactos</a>
+                    <a class="nav-link" th:href="@{/listarContactos?id=+ ${perfil.id}}"><i class="fas fa-heart color-propio pr-2"></i>Contactos</a>
                 </li>
                 <li class="nav-item px-lg-4">
                     <a class="nav-link" href="#"><i class="fas fa-times text-info pr-2"></i>Descartes</a>
@@ -45,7 +45,7 @@
                     <a class="nav-link" href="#"><i class="far fa-grin-hearts text-danger pr-2"></i>Matches</a>
                 </li>
                 <li class="nav-item px-lg-4">
-                    <a class="nav-link" th:href="@{/editar(id=${plato.id})}"><i class="fas fa-comments text-success pr-2"></i>Encuentros</a>
+                    <a class="nav-link" href="#"><i class="fas fa-comments text-success pr-2"></i>Encuentros</a>
                 </li>
                 <li class="nav-item pl-lg-4">
                         <a class="nav-link" href="#"><i class="fas fa-user text-primary pr-2"></i>Mi perfil</a>

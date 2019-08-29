@@ -143,15 +143,28 @@ public class Controlador {
 		logger.info("****************************Entrando en listarContactos");
 		ModelAndView model = new ModelAndView("contactos");
 		List<Perfil> lista = servicio.listaContactos(id);
-		model.addObject("perfil", p);
 		model.addObject("listaContacto", lista);
+		model.addObject("id", p.getId());
 		return model;
 	}
-	
+	/**
+	 * Metodo darLike
+	 * 
+	 * da un like
+	 * 
+	 * @param int id - id del usuario que da like
+	 * @param int id2 -id del usuario al que se le da like
+	 * @return model
+	 * @version 1.0
+	 * @author Jorge
+	 * 
+	 *         28/08/2019
+	 * 
+	 */
 	@GetMapping("/darLike")
 	public ModelAndView darLike(@RequestParam("id1") int id1, @RequestParam("id2") int id2) {
 	servicio.darLike(id1, id2);
-	ModelAndView model = new ModelAndView("contactos");
+	ModelAndView model = new ModelAndView("selector");
 	model.addObject("id", id1);
 	
 		return model;
