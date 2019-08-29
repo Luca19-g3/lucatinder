@@ -58,6 +58,20 @@ public class ControladorRest {
 		return servicio.getListaPerfil(id, 20);
 	}
 
+	/**
+	 * Método obtenerContactosRest
+	 *
+	 * Método para obtener los Contactos de un usuario través de REST
+	 *
+	 * @param int id Id del perfil al que le mostraras los contactos
+	 * @return List<Perfil> Lista con los perfiles de contactos
+	 * @version 1.0
+	 * @author Jorge
+	 *
+	 *         29/08/2019
+	 *
+	 *
+	 */
 	@GetMapping(value = "/contactosrest")
 	public List<Perfil> obtenerContactosRest(@RequestParam("id") int id) {
 		logger.info("-----Ejecutando el metodo obtenerPerfilesRest en la clase ControladorRest");
