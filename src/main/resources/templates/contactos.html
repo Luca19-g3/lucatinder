@@ -16,19 +16,49 @@
 
 <body>
 
-    <div class="container p-0">
-        <p>Hola <span th:text="${perfil.nombre}"></span></p>
-        <h1 class="text-center">Estos son todos tus <span><i class="fas fa-heart color-propio"></i></span></h1>
-        <div class="card-columns">
+    <nav class="navbar navbar-expand-lg navbar-light p-lg-0">
+        <button class="navbar-toggler mx-auto" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav fs-15 py-lg-4 col-lg-8 d-lg-flex justify-content-center mx-auto">
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="#"><img src="logo.png" class="fluid-img" alt="logo"></a>
+                </li> -->
+                <li class="nav-item pr-lg-4">
+                    <a class="nav-link" href="#"><i class="fas fa-heart color-propio pr-2"></i>Contactos</a>
+                </li>
+                <li class="nav-item px-lg-4">
+                    <a class="nav-link" href="#"><i class="fas fa-times text-info pr-2"></i>Descartes</a>
+                </li>
+                <li class="nav-item px-lg-4">
+                    <a class="nav-link" href="#"><i class="far fa-grin-hearts text-danger pr-2"></i>Matches</a>
+                </li>
+                <li class="nav-item px-lg-4">
+                    <a class="nav-link" href="#"><i class="fas fa-comments text-success pr-2"></i>Encuentros</a>
+                </li>
+                <li class="nav-item pl-lg-4">
+                        <a class="nav-link" href="#"><i class="fas fa-user text-primary pr-2"></i>Mi perfil</a>
+                    </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid p-0 contenedor-titulo">
+        <h1 class="text-center py-5 mb-0">Mira todos tus <span><i class="fas fa-heart color-propio"></i></span></h1>
+    </div>
+    <div class="container p-0"> 
+        <div class="card-columns pt-lg-5">
             <div class="card p-3" th:each="contactolista : ${listaContacto}">
                 <img src="https://img.freepik.com/foto-gratis/calle-moda-estilo-pelo-hermosa-chica_1139-844.jpg?size=626&ext=jpg"
                     class="card-img-top" alt="Imagen de un perfil">
                 <div class="card-body pb-0">
                     <div class="row m-0 p-0">
-                        <h4 class="card-title col-8 m-0 p-0 text-left"><span th:text="${contactolista.nombre}" /></h4>
-                        <h4 class="card-title col-4 m-0 p-0 text-right"><span th:text="${contactolista.edad}" /></h4>
+                        <h4 class="card-title col-8 m-0 p-0 text-left"><span th:text="${contactolista.nombre}" />Nombre</h4>
+                        <h4 class="card-title col-4 m-0 p-0 text-right"><span th:text="${contactolista.edad}" />20</h4>
                     </div>
-                    <p class="card-text mt-3"><span th:text="${contactolista.descripcion}" /></p>
+                    <p class="card-text mt-3"><span th:text="${contactolista.descripcion}" />Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium error, dolor autem quam optio ab porro perspiciatis necessitatibus architecto quod adipisci voluptatibus pariatur quia cum nemo suscipit commodi repudiandae harum?</p>
                 </div>
             </div>
         </div>

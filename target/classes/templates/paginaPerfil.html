@@ -25,6 +25,35 @@
 
 <body>
 
+<nav class="navbar navbar-expand-lg navbar-light p-lg-0">
+        <button class="navbar-toggler mx-auto" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav fs-15 py-lg-4 col-lg-8 d-lg-flex justify-content-center mx-auto">
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="#"><img src="logo.png" class="fluid-img" alt="logo"></a>
+                </li> -->
+                <li class="nav-item pr-lg-4">
+                    <a class="nav-link" href="#"><i class="fas fa-heart color-propio pr-2"></i>Contactos</a>
+                </li>
+                <li class="nav-item px-lg-4">
+                    <a class="nav-link" href="#"><i class="fas fa-times text-info pr-2"></i>Descartes</a>
+                </li>
+                <li class="nav-item px-lg-4">
+                    <a class="nav-link" href="#"><i class="far fa-grin-hearts text-danger pr-2"></i>Matches</a>
+                </li>
+                <li class="nav-item px-lg-4">
+                    <a class="nav-link" href="#"><i class="fas fa-comments text-success pr-2"></i>Encuentros</a>
+                </li>
+                <li class="nav-item pl-lg-4">
+                        <a class="nav-link" href="#"><i class="fas fa-user text-primary pr-2"></i>Mi perfil</a>
+                    </li>
+            </ul>
+        </div>
+    </nav>
+
     <div class="container p-0">
         <p>Hola <span th:text="${perfil.nombre}"></span></p>
         <div class="card-columns">
