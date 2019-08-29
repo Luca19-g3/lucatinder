@@ -26,7 +26,8 @@ public class LucaTinderApplicationTests {
 	 
 	@Test
 	public void contextLoads() {
-		pruebadislike();
+		
+		getPerfilRamdom();
 		
 	}
 	
@@ -94,6 +95,10 @@ public class LucaTinderApplicationTests {
 		 System.out.println("--------------------------------------------like dao -");
 		 
 	 }
+	 public void getPerfilRamdom() {
+		 perfil.getPerfilRamdom(1);
+	 }
+	 
 }
 	 
 	 

@@ -91,5 +91,11 @@ public class FakePerfiles {
 		return listPerfil;
 	}
 
+	
+	public static int ramdomNumber(int min_num,int max_num) {
+		Faker faker = new Faker();
+		return max_num = faker.number().numberBetween(min_num, max_num);
+		
+	}
 
 }

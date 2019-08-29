@@ -213,6 +213,16 @@ public class ServicioImpl implements Servicio {
 		perfilDao.darLike(id1, id2);
 		
 	}
+	/**
+	 * @param 
+	 * @return Perfil p perfil seleccionado aleatoriamente entre todos nuestros usuarios
+	 * @author jesus
+	 */
+	@Override
+	public Perfil getPerfilRamdom(int id) {
+		
+		return perfilDao.getPerfilRamdom(id);
+	}
 		
 	
 

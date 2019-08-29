@@ -15,6 +15,7 @@ import com.lucatinder.g3.LucaTinderApplication;
 import com.lucatinder.g3.modelo.Contacto;
 import com.lucatinder.g3.modelo.Descarte;
 import com.lucatinder.g3.modelo.Perfil;
+import com.lucatinder.g3.utilidades.FakePerfiles;
 
 /**
  * Clase PerfilDAOImpl
@@ -217,6 +218,35 @@ public class PerfilDAOImpl implements PerfilDAO {
 		entityManager.merge(d);
 		logger.info(d.toString());
 	}
+
+	
+	/**
+	 * Metodo getPerfilRamdom
+	 * 
+	 * selecciona un perfil ramdom
+	 * 
+	 *@return Perfil p devuelve un perfil ramdom 
+	 * @version 1.0
+	 * @author jesus
+	 * 
+	 *         29/08/2019
+	 * 
+	 */
+	@Override
+	public Perfil getPerfilRamdom(int id) {
+		logger.info("----------------------Entrando a getPerfilRamdom.");
+		List<Perfil> list= getListaPerfil(id, 200);
+		int idR = FakePerfiles.ramdomNumber(1, list.size());
+		Perfil p = list.get(idR);
+		p =list.get(idR);
+	
+		
+		
+		
+		return p ;
+	}
+	
+	
 
 }
 

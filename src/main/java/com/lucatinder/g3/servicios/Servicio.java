@@ -26,4 +26,5 @@ public interface Servicio {
 	public ErrorPropio setMensajeCrear(String msg);
 	public List<Perfil> listaContactos(int id);
 	public void darLike(int id1, int id2);
+	public Perfil getPerfilRamdom(int id);
 }
