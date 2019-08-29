@@ -68,6 +68,6 @@ input:focus {
 }
 
 .contenedor-titulo {
-	background-image: url("full-bloom.png");
+	background-image: url("/resources/img/full-bloom.png");
 	background-repeat: repeat;
 }

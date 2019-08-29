@@ -147,6 +147,7 @@ public class Controlador {
 		model.addObject("id", p.getId());
 		return model;
 	}
+
 	/**
 	 * Metodo darLike
 	 * 
@@ -161,12 +162,26 @@ public class Controlador {
 	 *         28/08/2019
 	 * 
 	 */
+	
+	
+	@GetMapping("/encuentros")
+	public ModelAndView selector(@RequestParam("id")int id) {
+		ModelAndView model = new ModelAndView("selector");
+		model.addObject("id", id);
+		Perfil p = servicio.getPerfilRamdom(id);
+		model.addObject("perfil",p);
+		
+		return model;
+	}
+	
+	
 	@GetMapping("/darLike")
 	public ModelAndView darLike(@RequestParam("id1") int id1, @RequestParam("id2") int id2) {
-	servicio.darLike(id1, id2);
-	ModelAndView model = new ModelAndView("selector");
-	model.addObject("id", id1);
-	
+		servicio.darLike(id1, id2);
+		ModelAndView model = new ModelAndView("selector");
+		model.addObject("id", id1);
+		Perfil p = servicio.getPerfilRamdom(id1);
+		model.addObject("perfil", p);
 		return model;
 	}
 
