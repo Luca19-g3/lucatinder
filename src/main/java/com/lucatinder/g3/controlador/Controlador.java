@@ -51,9 +51,9 @@ public class Controlador {
 	 * 
 	 */
 	@GetMapping("/")
-	public ModelAndView palIndex(@ModelAttribute("perfil") Perfil p, ErrorPropio e){
+	public ModelAndView palIndex(@ModelAttribute("perfil") Perfil p, ErrorPropio e) {
 		ModelAndView model = new ModelAndView("index");
-		
+
 		e = new ErrorPropio();
 		model.addObject("errorpropio", e);
 		return model;
@@ -64,9 +64,10 @@ public class Controlador {
 	 * 
 	 * Metodo para entrar a la aplicacion
 	 * 
-	 * @param ModelMap model guarda el perfil que ha logeado 
-	 * @param          int id Id que introduce el usuario
-	 * @param ErrorPropio e - Devuelve un mensaje de error si el cliente mete mal el id
+	 * @param ModelMap    model guarda el perfil que ha logeado
+	 * @param             int id Id que introduce el usuario
+	 * @param ErrorPropio e - Devuelve un mensaje de error si el cliente mete mal el
+	 *                    id
 	 * @return paginaPerfil.html
 	 * @version 1.0
 	 * @author Jorge
@@ -78,11 +79,11 @@ public class Controlador {
 	@PostMapping("/entrar")
 	public ModelAndView login(@RequestParam("id") int id, ErrorPropio e, Perfil p) {
 		logger.info("****************************Intentando entrar");
-	
+
 		ModelAndView model;
 		if (servicio.getPerfil(id) == null) {
 			model = new ModelAndView("index");
-					e.setMensajeCreada(" ");
+			e.setMensajeCreada(" ");
 			e.setMensaje("Este id no existe");
 			model.addObject("errorpropio", e);
 			logger.info("******************************************************************" + e.getMensaje());
@@ -90,8 +91,8 @@ public class Controlador {
 			model = new ModelAndView("paginaPerfil");
 			p = servicio.getPerfil(id);
 			model.addObject("perfil", p);
-			model.addObject("listaperfil",servicio.getListaPerfil(p.getId(),20));
-		
+			model.addObject("listaperfil", servicio.getListaPerfil(p.getId(), 20));
+
 		}
 		return model;
 	}
@@ -110,7 +111,7 @@ public class Controlador {
 	 * 
 	 */
 	@PostMapping("/new")
-	public ModelAndView newPerfil(@ModelAttribute("perfil") Perfil p,ErrorPropio e) {
+	public ModelAndView newPerfil(@ModelAttribute("perfil") Perfil p, ErrorPropio e) {
 		logger.info("**************************************GUARDANDO Perfil");
 		servicio.newPerfil(p);
 		logger.info("******************************Perfil GUARDADO" + p.toString());
@@ -119,16 +120,16 @@ public class Controlador {
 		e.setMensaje(" ");
 		e.setMensajeCreada("Tu cuenta ha sido creada.");
 		model.addObject("errorpropio", e);
-		
+
 		return model;
 	}
-	
+
 	/**
-	 * Metodo newPerfil
+	 * Metodo listarContactos
 	 * 
-	 * Metodo para crear un nuevo Perfil
+	 * lista los contactos del perfil al que pertenece la id
 	 * 
-	 * @param Perfil p Perfil que se va crear
+	 * @param int id la id del perfil , perfil p el mismo perfil de la id
 	 * @return model
 	 * @version 1.0
 	 * @author Jesus
@@ -136,16 +137,15 @@ public class Controlador {
 	 *         28/08/2019
 	 * 
 	 */
-	@PostMapping("/listarContactos")//----------------------da error, pero la lista se genera bien
+	@GetMapping("/listarContactos")
 	public ModelAndView listarContactos(@RequestParam("id") int id, Perfil p) {
+		p = servicio.getPerfil(id);
 		logger.info("****************************Entrando en listarContactos");
-		ModelAndView model= new ModelAndView("paginaPerfil"); //-----deveriamos crear una pagina nueva para esto
-			p = servicio.getPerfil(id);
-			List<Perfil> l = servicio.listaContactos(1);
-			model.addObject("perfil", p);
-			model.addObject("listaperfil",l);
-		
-		
+		ModelAndView model = new ModelAndView("contactos");
+		List<Perfil> lista = servicio.listaContactos(id);
+		model.addObject("perfil", p);
+		model.addObject("listaContacto", lista);
 		return model;
 	}
+
 }
