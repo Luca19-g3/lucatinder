@@ -14,6 +14,8 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+
+
 /**
  * Clase Perfil
  * 
@@ -65,15 +67,25 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 		@JsonManagedReference
 		private List<Contacto> contactos2;
 
+		//bi-directional many-to-one association to Descarte
+		@OneToMany(mappedBy="perfil1")
+		@JsonManagedReference
+		private List<Descarte> descartes1;
+
+		//bi-directional many-to-one association to Descarte
+		@OneToMany(mappedBy="perfil2")
+		@JsonManagedReference
+		private List<Descarte> descartes2;
+
 		public Perfil() {
 		}
 
-		public int getId() {
+		public int getIdPerfil() {
 			return this.id;
 		}
 
-		public void setId(int id) {
-			this.id = id;
+		public void setIdPerfil(int idPerfil) {
+			this.id = idPerfil;
 		}
 
 		public String getCorreo() {
@@ -176,13 +188,48 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 			return contactos2;
 		}
 
-	
+		public List<Descarte> getDescartes1() {
+			return this.descartes1;
+		}
 
+		public void setDescartes1(List<Descarte> descartes1) {
+			this.descartes1 = descartes1;
+		}
 
-	public String toString() {
-		return "\nPerfil:\n\tId: " + id + ",\n\tCorreo: " + correo + ",\n\tPassword: " + password + ",\n\tNombre: " + nombre + ",\n\tEdad: " + edad + ",\n\tGénero: " + genero + ",\n\tPreferencias sexuales: " + preferencias + ",\n\tDescripción: " + descripcion;
+		public Descarte addDescartes1(Descarte descartes1) {
+			getDescartes1().add(descartes1);
+			descartes1.setPerfil1(this);
+
+			return descartes1;
+		}
+
+		public Descarte removeDescartes1(Descarte descartes1) {
+			getDescartes1().remove(descartes1);
+			descartes1.setPerfil1(null);
+
+			return descartes1;
+		}
+
+		public List<Descarte> getDescartes2() {
+			return this.descartes2;
+		}
+
+		public void setDescartes2(List<Descarte> descartes2) {
+			this.descartes2 = descartes2;
+		}
+
+		public Descarte addDescartes2(Descarte descartes2) {
+			getDescartes2().add(descartes2);
+			descartes2.setPerfil2(this);
+
+			return descartes2;
+		}
+
+		public Descarte removeDescartes2(Descarte descartes2) {
+			getDescartes2().remove(descartes2);
+			descartes2.setPerfil2(null);
+
+			return descartes2;
+		}
+
 	}
-	
-}
-
-
