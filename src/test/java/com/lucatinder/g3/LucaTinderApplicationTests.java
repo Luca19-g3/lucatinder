@@ -1,15 +1,19 @@
 package com.lucatinder.g3;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.lucatinder.g3.dao.PerfilDAO;
 import com.lucatinder.g3.modelo.Perfil;
 import com.lucatinder.g3.utilidades.FakePerfiles;
 
@@ -17,11 +21,12 @@ import com.lucatinder.g3.utilidades.FakePerfiles;
 @SpringBootTest
 public class LucaTinderApplicationTests {
 
+	 @Autowired
+	 private PerfilDAO perfil;
+	 
 	@Test
 	public void contextLoads() {
-		probadorFakerPerfil();
-		probadorFakeArrayPerfiles();
-		
+		pruebaLike();
 		
 	}
 	
@@ -61,7 +66,26 @@ public class LucaTinderApplicationTests {
 		
 		 
 	 }
+	 /*
+	  *
+	  * @author Jorge
+	  * 
+	  * 
+	  * pruebar si va el metodo comprobarLike
+	  * 
+	  * 
+	  */
 	 
+	 public void pruebaLike() {
+
+		 
+		 boolean prueba = perfil.comprobarLike(1, 2);
+		 System.out.println("prueba");
+		 assertTrue(prueba);
+		 
+		 
+		 
+	 }
 }
 	 
 	 

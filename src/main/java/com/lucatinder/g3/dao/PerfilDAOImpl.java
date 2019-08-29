@@ -54,6 +54,7 @@ public class PerfilDAOImpl implements PerfilDAO {
 		entityManager.merge(p);
 		return p;
 	}
+
 	/**
 	 * Metodo getPerfil
 	 * 
@@ -74,13 +75,11 @@ public class PerfilDAOImpl implements PerfilDAO {
 		return entityManager.find(Perfil.class, id);
 	}
 
-
-
-	
 	/**
 	 * Metodo getListaPerfil
 	 * 
-	 * Metodo para obtener una lista de usuarios con id distinto del id dado y longitud definida
+	 * Metodo para obtener una lista de usuarios con id distinto del id dado y
+	 * longitud definida
 	 * 
 	 * @param int id Id del perfil a evitar en la lista de usuarios
 	 * @param int longitud Longitud de la lista devuelta
@@ -92,15 +91,15 @@ public class PerfilDAOImpl implements PerfilDAO {
 	 * 
 	 */
 
-   @SuppressWarnings("unchecked")
-@Override
-   @Transactional
-   public List<Perfil> getListaPerfil(int id, int longitud) {
-       logger.info("Ejecutando el metodo getListaPerfil en la clase ServicioImpl");
-       String hql = "FROM Perfil WHERE id != " + id ;
-       return (List<Perfil>) entityManager.createQuery(hql).setMaxResults(longitud).getResultList();
-   }
-   
+	@SuppressWarnings("unchecked")
+	@Override
+	@Transactional
+	public List<Perfil> getListaPerfil(int id, int longitud) {
+		logger.info("Ejecutando el metodo getListaPerfil en la clase ServicioImpl");
+		String hql = "FROM Perfil WHERE id != " + id;
+		return (List<Perfil>) entityManager.createQuery(hql).setMaxResults(longitud).getResultList();
+	}
+
 	/**
 	 * Metodo listContactos
 	 * 
@@ -122,10 +121,81 @@ public class PerfilDAOImpl implements PerfilDAO {
 		List contactos = p.getContactos1();
 		for (int i = 0; i < contactos.size(); i++) {
 			Contacto c = (Contacto) contactos.get(i);
-			
-			 listContacto.add(c.getPerfil2());
+
+			listContacto.add(c.getPerfil2());
 		}
-		logger.info("------------------"+listContacto.toString());
+		logger.info("------------------" + listContacto.toString());
 		return listContacto;
 	}
+
+	@Override
+	public void darLike(int id1, int id2) {
+		logger.info("----------------------------------------Vamo a dar un like");
+		Perfil p = getPerfil(id1);
+		Perfil p2 = getPerfil(id2);
+		Contacto c = new Contacto();
+		c.setPerfil1(p);
+		c.setPerfil2(p2);
+
+	}
+	
+	/**
+	 * Metodo comprobar like
+	 * 
+	 
+	 * 
+	 * @param 
+	 * @return 
+	 * @version 1.0
+	 * @author gorje
+	 * @author jesus
+	 * 
+	 *         29/08/2019
+	 * 
+	 */
+	public boolean comprobarLike(int id1, int id2) {
+		boolean leGusto;
+	
+			logger.info("------Entrando en comprobar like, en un filo te digo si le gustas");
+			Object o = entityManager.createNativeQuery("SELECT Count(id_contacto) FROM contacto WHERE id_contacto=1 AND id_like=2").getSingleResult();
+			String s = o.toString();
+			int num = Integer.parseInt(s);	
+			System.out.println(num);
+			System.out.println("-----------"+o);
+			if (num ==0 ) {
+				logger.info("----no, bicho");
+				leGusto = false;
+			}else if(num==1){
+				logger.info("----si, le gustas");
+				leGusto = true;
+			}else {
+				logger.info("WARNING---------------\n Nº de campos en la tabla =  "+num+"\n Comprueva campos repetidos (nº aceptables 0,1)");
+				return true;
+			}
+			logger.info("---------------------------------------------------------------le gusto?-" + leGusto);
+		return leGusto;
+	}
+
 }
+
+	
+	
+	
+	/*
+	boolean leGusto;
+	try {
+		System.out.println("------try");
+		int s = entityManager.createNativeQuery("SELECT * FROM contacto WHERE id_contacto=5 AND id_like=2").getMaxResults();
+		System.out.println("---------"+ s);
+		leGusto = true;
+		
+	} catch (Exception e) {
+		System.out.println(e);
+		System.out.println("--------------------");
+		leGusto = false;
+	}
+
+	logger.info("----------------------------------------------------------------" + leGusto);
+	return leGusto;
+}
+	*/

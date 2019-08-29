@@ -19,4 +19,6 @@ public interface PerfilDAO {
 	public Perfil getPerfil(int id);
 	public List<Perfil> getListaPerfil(int id, int longitud);
 	public List<Perfil> listaContactos(int id);
+	public void darLike(int id1, int id2);
+	public boolean comprobarLike(int id1, int id2);
 }

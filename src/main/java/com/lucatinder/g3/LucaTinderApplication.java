@@ -8,8 +8,12 @@ import com.lucatinder.g3.servicios.Servicio;
 @SpringBootApplication
 public class LucaTinderApplication {
 
+	
+	
 	public static void main(String[] args) {
 		SpringApplication.run(LucaTinderApplication.class, args);
-
+	
+	
+		
 	}
 }

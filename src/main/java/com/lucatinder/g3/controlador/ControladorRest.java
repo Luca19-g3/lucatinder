@@ -71,7 +71,10 @@ public class ControladorRest {
 	 *         29/08/2019
 	 *
 	 *
+	 *
 	 */
+	
+
 	@GetMapping(value = "/contactosrest")
 	public List<Perfil> obtenerContactosRest(@RequestParam("id") int id) {
 		logger.info("-----Ejecutando el metodo obtenerPerfilesRest en la clase ControladorRest");
