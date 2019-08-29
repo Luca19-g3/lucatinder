@@ -194,7 +194,20 @@ public class ServicioImpl implements Servicio {
 		
 		return perfilDao.listaContactos(id);
 	}
-
+	/**
+	 * Metodo darLikes
+	 * 
+	 * Metodo para redireccionar al perfilDao al dar like
+	 * 
+	 * @param int id1 ,del perfil que da like
+	 * @param int id2, id del perfil al que se le da like
+	 * @return  void
+	 * @version 1.0
+	 * @author Jorge
+	 * 
+	 *         28/08/2019
+	 * 
+	 */
 	@Override
 	public void darLike(int id1, int id2) {
 		perfilDao.darLike(id1, id2);
