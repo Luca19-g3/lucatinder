@@ -52,15 +52,15 @@ public class ControladorRest {
 	 * 
 	 */
 
-
 	@GetMapping(value = "/perfilesrest")
 	public List<Perfil> obtenerPerfilesRest(@RequestParam("id") int id) {
 		logger.info("-----Ejecutando el metodo obtenerPerfilesRest en la clase ControladorRest");
 		return servicio.getListaPerfil(id, 20);
 	}
+
 	@GetMapping(value = "/contactosrest")
 	public List<Perfil> obtenerContactosRest(@RequestParam("id") int id) {
 		logger.info("-----Ejecutando el metodo obtenerPerfilesRest en la clase ControladorRest");
 		return servicio.listaContactos(1);
-}
+	}
 }
