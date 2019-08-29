@@ -147,5 +147,14 @@ public class Controlador {
 		model.addObject("listaContacto", lista);
 		return model;
 	}
+	
+	@GetMapping("/darLike")
+	public ModelAndView darLike(@RequestParam("id1") int id1, @RequestParam("id2") int id2) {
+	servicio.darLike(id1, id2);
+	ModelAndView model = new ModelAndView("contactos");
+	model.addObject("id", id1);
+	
+		return model;
+	}
 
 }
