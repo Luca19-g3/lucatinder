@@ -186,7 +186,7 @@ public class PerfilDAOImpl implements PerfilDAO {
 				logger.info("----si, le gustas");
 				leGusto = true;
 			}else {
-				logger.info("WARNING---------------\n Nº de campos en la tabla =  "+num+"\n Comprueva campos repetidos (nº aceptables 0,1)");
+				logger.warn("WARNING---------------\n Nº de campos en la tabla =  "+num+"\n Comprueva campos repetidos (nº aceptables 0,1)");
 				return true;
 			}
 			logger.info("---------------------------------------------------------------le gusto?-" + leGusto);
