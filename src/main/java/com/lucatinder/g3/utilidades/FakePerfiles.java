@@ -17,8 +17,8 @@ import com.lucatinder.g3.modelo.Perfil;
 public class FakePerfiles {
 
 
-	/**
-	 * crea un unico perfil falso
+	/** 
+	 * crea un unico perfil falso.
 	 *
 	 * 
 	 * @return Perfil devuelve un objeto de tipo perfil aleatorio
