@@ -226,7 +226,20 @@ public class ServicioImpl implements Servicio {
 
 
 	
-	
+	/**
+	 * Metodo darDisLikes
+	 * 
+	 * Metodo para redireccionar al perfilDao al dar disLike
+	 * 
+	 * @param int id1 ,del perfil que da like
+	 * @param int id2, id del perfil al que se le da disLike
+	 * @return  void
+	 * @version 1.0
+	 * @author Jorge
+	 * 
+	 *         28/08/2019
+	 * 
+	 */
 	@Override
 	public void darDislike(int id1, int id2) {
 		perfilDao.darDislike(id1, id2);
