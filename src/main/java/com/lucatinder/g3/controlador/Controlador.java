@@ -173,30 +173,36 @@ public class Controlador {
 		
 		return model;
 	}
-	
+	/**@author Jorge
+	 * guarda el dislike
+	 * @param id1 id del perfil que da a dislike
+	 * @param Perfil p perfil al que da like
+	 * @return model
+	 */
 	
 	@GetMapping("/darLike")
-	public ModelAndView darLike(@RequestParam("id1") int id1, @RequestParam("id2") int id2) {
-		servicio.darLike(id1, id2);
+	public ModelAndView darLike(@RequestParam("id") int id, Perfil p) {
+
 		ModelAndView model = new ModelAndView("selector");
-		model.addObject("id", id1);
-		Perfil p = servicio.getPerfilRamdom(id1);
+		model.addObject("id", id);
+		p = servicio.getPerfilRamdom(id);
+		servicio.darLike(id, p.getId());
 		model.addObject("perfil", p);
 		return model;
 	}
 	
-	/**
+	/** @author Jesus y Jorge
 	 * guarda el dislike
 	 * @param id1 id del perfil que da a dislike
 	 * @param id2 id del perfil al que le da dislike
 	 * @return
 	 */
 	@GetMapping("/darDisLike")
-	public ModelAndView darDislike(@RequestParam("id1") int id1, @RequestParam("id2") int id2) {
-		servicio.darDislike(id1, id2);
+	public ModelAndView darDislike(@RequestParam("id") int id, Perfil p) {
 		ModelAndView model = new ModelAndView("selector");
-		model.addObject("id", id1);
-		Perfil p = servicio.getPerfilRamdom(id1);
+		model.addObject("id", id);
+		 p = servicio.getPerfilRamdom(id);
+		 servicio.darDislike(id, p.getId());
 		model.addObject("perfil", p);
 		return model;
 	}
