@@ -149,12 +149,11 @@ public class Controlador {
 	}
 
 	/**
-	 * Metodo darLike
+	 * Metodo encuentros
 	 * 
-	 * da un like
+	 * redirecciona a la web selector y pasa los parametros necesarios
 	 * 
-	 * @param int id - id del usuario que da like
-	 * @param int id2 -id del usuario al que se le da like
+	 * @param int id - id del usuario que va a dar like o dislike
 	 * @return model
 	 * @version 1.0
 	 * @author Jorge
@@ -174,8 +173,8 @@ public class Controlador {
 		return model;
 	}
 	/**@author Jorge
-	 * guarda el dislike
-	 * @param id1 id del perfil que da a dislike
+	 * guarda el like
+	 * @param id id del perfil que da a like
 	 * @param Perfil p perfil al que da like
 	 * @return model
 	 */
@@ -194,8 +193,8 @@ public class Controlador {
 	/** @author Jesus y Jorge
 	 * guarda el dislike
 	 * @param id1 id del perfil que da a dislike
-	 * @param id2 id del perfil al que le da dislike
-	 * @return
+	 * @param Perfil p - perfil al que se le da el dislike
+	 * @return model
 	 */
 	@GetMapping("/darDisLike")
 	public ModelAndView darDislike(@RequestParam("id") int id, Perfil p) {
