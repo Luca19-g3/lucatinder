@@ -26,19 +26,27 @@
 					<div
 						class="row m-0 p-0 d-flex justify-content-around fila-iconos-selector bg-dark">
 						<p class="mb-0">
-							<a th:href="@{/darLike(id=${id})}"><i class="fas fa-heart fa-7x color-propio"></i></a>
+							<a th:href="@{/darLike(id=${id})}"><i
+								class="fas fa-heart fa-7x color-propio"></i></a>
 						</p>
 						<p class="mb-0">
-							<a th:href="@{/darDisLike(id=${id})}"><i class="fas fa-times fa-7x text-info"></i></a>
+							<a th:href="@{/darDisLike(id=${id})}"><i
+								class="fas fa-times fa-7x text-info"></i></a>
 						</p>
 					</div>
 				</div>
 				<div class="card-body pb-0">
 					<div class="row m-0 p-0">
-						<h2 class="card-title col-6 text-left"><span th:text="${perfil.nombre}" /></h2>
-						<h3 class="card-title col-6 text-right"><span th:text="${perfil.edad}" /></h3>
+						<h2 class="card-title col-6 text-left">
+							<span th:text="${perfil.nombre}" />
+						</h2>
+						<h3 class="card-title col-6 text-right">
+							<span th:text="${perfil.edad}" />
+						</h3>
 					</div>
-					<p class="card-text"><span th:text="${perfil.descripcion}" /></p>
+					<p class="card-text">
+						<span th:text="${perfil.descripcion}" />
+					</p>
 				</div>
 			</div>
 		</div>
